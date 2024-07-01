@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Rotating Brick</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+<script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
+    import { GUI } from 'https://cdn.skypack.dev/lil-gui@0.17.0';
+
+    // Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Brick Geometry
+    const geometries = {
+        Box: new THREE.BoxGeometry(1, 1, 1),
+        Sphere: new THREE.SphereGeometry(0.75, 32, 32),
+        Cylinder: new THREE.CylinderGeometry(0.5, 0.5, 1, 32)
+    };
+
+    let currentGeometry = geometries.Box;
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    let brick = new THREE.Mesh(currentGeometry, material);
+    scene.add(brick);
+
+    camera.position.z = 5;
+
+    // Rotation
+    function animate() {
+        requestAnimationFrame(animate);
+        brick.rotation.x += 0.01;
+        brick.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // GUI Controls
+    const gui = new GUI();
+    const shapes = ['Box', 'Sphere', 'Cylinder'];
+    const params = { shape: 'Box' };
+
+    gui.add(params, 'shape', shapes).onChange(value => {
+        scene.remove(brick);
+        currentGeometry = geometries[value];
+        brick = new THREE.Mesh(currentGeometry, material);
+        scene.add(brick);
+    });
+
+    const colors = {
+        Green: 0x00ff00,
+        Red: 0xff0000,
+        Blue: 0x0000ff,
+        Yellow: 0xffff00
+    };
+
+    const colorFolder = gui.addFolder('Colors');
+    colorFolder.add({ color: 'Green' }, 'color', Object.keys(colors)).onChange(color => {
+        material.color.setHex(colors[color]);
+    });
+    colorFolder.open();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+</script>
+</body>
+</html>

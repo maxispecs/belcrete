@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Rotating Brick with Concrete Material</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            z-index: 2; /* Ensure this is between the background and the canvas */
+            padding: 10px;
+            pointer-events: none; /* Allow clicks to pass through to the canvas */
+        }
+        .overlay-text {
+            margin: 10px 0;
+            color: white; /* Make text color white for better visibility */
+        }
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           /*background: #000; /* Background color */
+            z-index: 1; /* Ensure this is the background */
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3; /* Ensure the canvas is on top */
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="background"></div> <!-- Background layer -->
+    <div id="overlay">
+        <div class="overlay-text">Text 1</div>
+        <div class="overlay-text">Text 2</div>
+        <div class="overlay-text">Text 3</div>
+    </div>
+</div>
+<script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
+    import { GUI } from 'https://cdn.skypack.dev/lil-gui@0.17.0';
+
+    // Scene, Camera, Renderer
+    const container = document.getElementById('container');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Enable alpha channel
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Set background color to transparent
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.zIndex = 3; // Ensure the canvas is on top
+    container.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    // Load Textures
+    const textureLoader = new THREE.TextureLoader();
+    const concreteColor = textureLoader.load('https://example.com/concrete-albedo.jpg'); // Replace with your texture URL
+    const concreteNormal = textureLoader.load('https://img.freepik.com/free-photo/blank-concrete-white-wall-texture-background_1017-15560.jpg?t=st=1719610287~exp=1719613887~hmac=d9fa8f1f2815a8f77c6a983d86d0eae424b1e8071329ba740addde4b4f1b6d42&w=1800'); // Replace with your texture URL
+    const concreteRoughness = textureLoader.load('https://example.com/concrete-roughness.jpg'); // Replace with your texture URL
+    const concreteAo = textureLoader.load('https://example.com/concrete-ao.jpg'); // Replace with your texture URL
+
+    // Brick Geometry
+    const geometries = {
+        Box: new THREE.BoxGeometry(1, 1, 1),
+        Sphere: new THREE.SphereGeometry(0.75, 32, 32),
+        Cylinder: new THREE.CylinderGeometry(0.5, 0.5, 1, 32)
+    };
+
+    let currentGeometry = geometries.Box;
+    const material = new THREE.MeshStandardMaterial({
+        map: concreteColor,
+        normalMap: concreteNormal,
+        roughnessMap: concreteRoughness,
+        aoMap: concreteAo,
+        roughness: 1
+    });
+    let brick = new THREE.Mesh(currentGeometry, material);
+    scene.add(brick);
+
+    camera.position.z = 5;
+
+    // Rotation
+    function animate() {
+        requestAnimationFrame(animate);
+        brick.rotation.x += 0.01;
+        brick.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // GUI Controls
+    const gui = new GUI();
+    const shapes = ['Box', 'Sphere', 'Cylinder'];
+    const params = { shape: 'Box' };
+
+    gui.add(params, 'shape', shapes).onChange(value => {
+        scene.remove(brick);
+        currentGeometry = geometries[value];
+        brick = new THREE.Mesh(currentGeometry, material);
+        scene.add(brick);
+    });
+
+    const colors = {
+        Green: 0x00ff00,
+        Red: 0xff0000,
+        Blue: 0x0000ff,
+        Yellow: 0xffff00
+    };
+
+    const colorFolder = gui.addFolder('Colors');
+    colorFolder.add({ color: 'Green' }, 'color', Object.keys(colors)).onChange(color => {
+        material.color.setHex(colors[color]);
+    });
+    colorFolder.open();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+</script>
+</body>
+</html>
