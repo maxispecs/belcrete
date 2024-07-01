@@ -4,7 +4,7 @@
 
 import * as THREE from 'three';
 // import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // Scene, Camera, Renderer
@@ -47,7 +47,7 @@ const textureLoader = new THREE.TextureLoader();
 
 // const textureName = 'rock_wall_03' ;
 const textureName = 'brushed_concrete_2' ;
-const textureNameSuffix = '_4k';
+const textureNameSuffix = '';
 
 let brick;
 
@@ -79,7 +79,7 @@ const material = new THREE.MeshStandardMaterial({
 
 let obj1;
 // Instantiate a loader
-const loader = new GLTFLoader();
+// const loader = new GLTFLoader();
 
 // Optional: Provide a DRACOLoader instance to decode compressed mesh data
 // const dracoLoader = new DRACOLoader();
@@ -212,7 +212,7 @@ const geometries = {
     Box: new THREE.BoxGeometry(width, height, depth),
     Sphere: new THREE.SphereGeometry(0.75, 32, 32),
     Cylinder: new THREE.CylinderGeometry(0.5, 0.5, 1, 32),
-    RRect: obj1
+    RRect: null
 };
 
 let currentGeometry = geometries.Box;

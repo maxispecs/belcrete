@@ -33,10 +33,10 @@
 }
 
 
-.stone-variant.variant1 { background-image: url("/bricks/brick1.jpg"); }
-.stone-variant.variant2 { background-image: url("/bricks/brick2.jpg"); }
-.stone-variant.variant3 { background-image: url("/bricks/brick3.jpg"); }
-.stone-variant.variant4 { background-image: url("/bricks/brick4.jpg"); }
+.stone-variant.variant1 { background-image: url("bricks/brick1.jpg"); }
+.stone-variant.variant2 { background-image: url("bricks/brick2.jpg"); }
+.stone-variant.variant3 { background-image: url("bricks/brick3.jpg"); }
+.stone-variant.variant4 { background-image: url("bricks/brick4.jpg"); }
 
 .stone-variant-image-container {
     text-align: center;
