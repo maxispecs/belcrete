@@ -51,15 +51,15 @@ const textureNameSuffix = '_4k';
 
 let brick;
 
-const diffuseTexture = textureLoader.load(`/textures/${textureName}_diff${textureNameSuffix}.jpg`,
+const diffuseTexture = textureLoader.load(`textures/${textureName}_diff${textureNameSuffix}.jpg`,
     texture => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
         scene.add(brick);
     }); // Replace with your Diffuse texture URL
 
-const normalTexture = textureLoader.load(`/textures/${textureName}_nor_gl${textureNameSuffix}.jpg`); // Replace with your Normal texture URL
-const armTexture = textureLoader.load(`/textures/${textureName}_arm${textureNameSuffix}.jpg`); // Replace with your AO texture URL
+const normalTexture = textureLoader.load(`textures/${textureName}_nor_gl${textureNameSuffix}.jpg`); // Replace with your Normal texture URL
+const armTexture = textureLoader.load(`textures/${textureName}_arm${textureNameSuffix}.jpg`); // Replace with your AO texture URL
 // const roughnessTexture = textureLoader.load('/textures/brushed_concrete_2_rough_4k.jpg'); // Replace with your Roughness texture URL
 // const displacementTexture = textureLoader.load('/textures/brushed_concrete_2_disp_4k.jpg'); // Replace with your Displacement texture URL
 
