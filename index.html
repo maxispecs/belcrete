@@ -1,237 +1,565 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <script src="assets/js/color-modes.js"></script>
+  <title>Belcrete</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="honorable.dev">
-    <meta name="generator" content="Hugo 0.122.0">
-    <title>Stone Showcase</title>
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">-->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/bc.css" rel="stylesheet">
 
-    <link href="stone-showcase.css" rel="stylesheet">
+  <link href="stone-showcase.css" rel="stylesheet">
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;
-        }
-
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
-
-        .bd-mode-toggle .dropdown-menu .active .bi {
-            display: block !important;
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="product.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: eNno
+  * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-    </symbol>
-    <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-    </symbol>
-    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-    </symbol>
-    <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-    </symbol>
-</svg>
 
-<!--<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">-->
-<!--    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"-->
-<!--            id="bd-theme"-->
-<!--            type="button"-->
-<!--            aria-expanded="false"-->
-<!--            data-bs-toggle="dropdown"-->
-<!--            aria-label="Toggle theme (auto)">-->
-<!--        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>-->
-<!--        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>-->
-<!--    </button>-->
-<!--    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">-->
-<!--        <li>-->
-<!--            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">-->
-<!--                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>-->
-<!--                Light-->
-<!--                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>-->
-<!--            </button>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">-->
-<!--                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>-->
-<!--                Dark-->
-<!--                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>-->
-<!--            </button>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">-->
-<!--                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>-->
-<!--                Auto-->
-<!--                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>-->
-<!--            </button>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</div>-->
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-center">
+
+<!--      <h1 class="logo"><a href="index.html">-->
+<!--         <img src="assets/belcrete-logo.png" alt="Belcrete logo" style="max-height: 100%; max-width: 4rem; width: auto; height: auto" />-->
+<!--      </a></h1>-->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+<!--          <li><a class="nav-link scrollto active" href="#video-section">Belcrete</a></li>-->
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#products">Products</a></li>
+
+          <li>
+
+              <a class="nav-link scrollto active" href="#video-section">
+                <img src="assets/belcrete-logo-diamond.png" alt="Belcrete logo" style="max-height: 90%; max-width: 4rem; width: auto; height: auto" />
+                <h3 style="font-weight: bold; position: relative; top: .3rem; left: .55rem">Belcrete</h3>
+              </a>
 
 
-<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
-    </symbol>
-    <symbol id="cart" viewBox="0 0 16 16">
-        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-    </symbol>
-    <symbol id="chevron-right" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-    </symbol>
-</svg>
+          </li>
 
-<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
-    <div class="container">
-        <a class="navbar-brand d-md-none" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
-            </svg>
+          <li><a class="nav-link scrollto" href="#showcase">Showcase</a></li>
+<!--          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>-->
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi logo-second-diamond bi-diamond-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
-            </svg>
-            Belcrete
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+              <!--          <li><a class="nav-link scrollto" href="#team">Team</a></li>-->
+<!--          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>-->
+<!--            <ul>-->
+<!--              <li><a href="#">Drop Down 1</a></li>-->
+<!--              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>-->
+<!--                <ul>-->
+<!--                  <li><a href="#">Deep Drop Down 1</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 2</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 3</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 4</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 5</a></li>-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li><a href="#">Drop Down 2</a></li>-->
+<!--              <li><a href="#">Drop Down 3</a></li>-->
+<!--              <li><a href="#">Drop Down 4</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+<!--          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>-->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
-                            </svg>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi logo-second-diamond bi-diamond-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Stone Showcase Card</a></li>
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">Product</a></li>-->
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">Features</a></li>-->
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">Enterprise</a></li>-->
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">Support</a></li>-->
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>-->
-                    <!--                    <li class="nav-item"><a class="nav-link" href="#">-->
-                    <!--                        <svg class="bi" width="24" height="24"><use xlink:href="#cart"/></svg>-->
-                    <!--                    </a></li>-->
-                </ul>
-            </div>
-        </div>
     </div>
-</nav>
+  </header><!-- End Header -->
+
+<style type="text/css">
+
+  #video-section .video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+
+  #video-section #bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+  }
+
+  #video-section .content {
+    position: relative;
+    z-index: 1;
+    color: white; /* Adjust as needed */
+    padding: 20px;
+  }
+
+</style>
+
+  <section id="video-section" style="height: 120vh; padding-top: 82px">
+    <div content="container-fluid" style="height: 80vh; top:2vh; position: sticky">
+      <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+          <source src="videos/video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="content">
+          <!-- Your content here -->
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<main>
+
+  <!-- ======= Hero Section ======= -->
+<!--  <section id="hero" class="d-flex align-items-center">-->
+
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">-->
+<!--          <h1>Elegant and creative solutions</h1>-->
+<!--          <h2>We are team of talented designers making websites with Bootstrap</h2>-->
+<!--          <div class="d-flex">-->
+<!--            <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
+<!--            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-6 order-1 order-lg-2 hero-img">-->
+<!--          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </section>&lt;!&ndash; End Hero &ndash;&gt;-->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+<!--    <section id="featured-services" class="featured-services">-->
+<!--      <div class="container">-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-4 col-md-6">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-laptop"></i></div>-->
+<!--              <h4 class="title"><a href="">Lorem Ipsum</a></h4>-->
+<!--              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-card-checklist"></i></div>-->
+<!--              <h4 class="title"><a href="">Dolor Sitema</a></h4>-->
+<!--              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-clipboard-data"></i></div>-->
+<!--              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+<!--              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Featured Services Section &ndash;&gt;-->
+
+
+<!--    <section id="featured-services" class="featured-services">-->
+<!--      <div class="container">-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-4 col-md-6">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-laptop"></i></div>-->
+<!--              <h4 class="title"><a href="">Lorem Ipsum</a></h4>-->
+<!--              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-card-checklist"></i></div>-->
+<!--              <h4 class="title"><a href="">Dolor Sitema</a></h4>-->
+<!--              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bi bi-clipboard-data"></i></div>-->
+<!--              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+<!--              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>-->
 
 
 
-
-
-
-
-
-
-
-    <div class="container-fluid pt-3">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
 
         <div class="row">
+          <div class="col-lg-6">
+            <img src="images/2X7A4756.jpg" class="img-fluid" style="padding-right: 2rem" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>About Belcrete</h3>
+            <p class="fst-italic">
+              Belcrete is a family-owned business striving to build reputation of a leading manufacturer for finest quality
+              pool, spa, wall step stones and copings.
+            </p>
+
+            <ul>
+              <li><i class="bi bi-check-circle"></i> minimum 20% of west-coast sand</li>
+              <li><i class="bi bi-check-circle"></i> culture of inclusion and diversity</li>
+              <li><i class="bi bi-check-circle"></i> net-positive natural impact</li>
+            </ul>
+            <p>
+              We are using the most advanced technology available today to bring the quality materials
+              with the best-in-class durability and the most outstanding design to modern competitive market.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+
+
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="25000" data-purecounter-duration="4" class="purecounter"></span>
+            <p>Projects</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="3" class="purecounter"></span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="2" class="purecounter"></span>
+            <p>Distributors</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+
+
+
+
+
+
+    <!-- ======= Products Section ======= -->
+    <section id="products" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+<!--          <span>Products and Implementations</span>-->
+          <h2>Our Products</h2>
+          <p>We provide wide range of solutions for most demanding and customized needs.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-pools">Pools</li>
+              <li data-filter=".filter-pcaps">Plaster Caps</li>
+              <li data-filter=".filter-steps">Steps</li>
+
+              <li data-filter=".filter-spas">SPAs</li>
+              <li data-filter=".filter-pits">Fire Pits and Benches</li>
+              <li data-filter=".filter-wcaps">Wall Caps</li>
+              <li data-filter=".filter-pavers">Pavers</li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pools">
+
+            <img src="images/poolImg1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/poolImg1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pools">
+            <img src="images/poolImg4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/poolImg4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pcaps">
+            <img src="images/pilasIm2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/pilasIm2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pcaps">
+            <img src="images/pilasIm5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/pilasIm5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-steps">
+            <img src="images/stepIm1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/stepIm1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-steps">
+            <img src="images/stepIm5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/stepIm5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-spas">
+            <img src="images/spaIm1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/spaIm1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-spas">
+            <img src="images/spaIm6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/spaIm6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pits">
+            <img src="images/fbIm4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/fbIm4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pits">
+            <img src="images/fbIm5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/fbIm5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-wcaps">
+            <img src="images/wallIm3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/wallIm3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-wcaps">
+            <img src="images/wallIm4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/wallIm4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pavers">
+            <img src="images/paversIm2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/paversIm2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-pavers">
+            <img src="images/paversIm3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="images/paversIm3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+
+    <!-- ======= Services Section ======= -->
+<!--    <section id="services" class="services section-bg">-->
+<!--      <div class="container">-->
+
+<!--        <div class="section-title">-->
+<!--          <span>Services</span>-->
+<!--          <h2>Services</h2>-->
+<!--          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>-->
+<!--        </div>-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bxl-dribbble"></i></div>-->
+<!--              <h4><a href="">Lorem Ipsum</a></h4>-->
+<!--              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-file"></i></div>-->
+<!--              <h4><a href="">Sed ut perspiciatis</a></h4>-->
+<!--              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-tachometer"></i></div>-->
+<!--              <h4><a href="">Magni Dolores</a></h4>-->
+<!--              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-world"></i></div>-->
+<!--              <h4><a href="">Nemo Enim</a></h4>-->
+<!--              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-slideshow"></i></div>-->
+<!--              <h4><a href="">Dele cardo</a></h4>-->
+<!--              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">-->
+<!--            <div class="icon-box">-->
+<!--              <div class="icon"><i class="bx bx-arch"></i></div>-->
+<!--              <h4><a href="">Divera don</a></h4>-->
+<!--              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Services Section &ndash;&gt;-->
+
+    <section id="showcase" class="services section-bg">
+
+
+        <div class="container-fluid pt-3">
+
+          <div class="section-title">
+            <!--          <span>Products and Implementations</span>-->
+            <h2>Product Showcase</h2>
+          </div>
+
+
+          <div class="row">
 
 
 
@@ -245,222 +573,493 @@
 
 
             <div class="col-xs-8 col-sm-7 col-md-6 col-lg-5 col-xl-4 col-6 stone-variants-container pt-3">
-                <div class="row">
+              <div class="row">
 
-                    <div class="col-6 stone-variant-image-container">
-                        <h3>Single Bullnose</h3>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <h3>Single Bullnose</h3>
+                </div>
 
-                    <div class="col-6 stone-variant-image-container">
-                        <h3>Double Bullnose</h3>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <h3>Double Bullnose</h3>
+                </div>
 
-                    <div class="col-6 stone-variant-image-container">
-                        <button class="stone-variant variant1" data-variant="Box"></button>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <button class="stone-variant variant1" data-variant="Box"></button>
+                </div>
 
-                    <div class="col-6 stone-variant-image-container">
-                        <button class="stone-variant variant2" data-variant="Sphere"></button>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <button class="stone-variant variant2" data-variant="Sphere"></button>
+                </div>
 
-                    <div class="col-6 stone-variant-image-container">
-                        <button class="stone-variant variant3" data-variant="Cylinder"></button>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <button class="stone-variant variant3" data-variant="Cylinder"></button>
+                </div>
 
-                    <div class="col-6 stone-variant-image-container">
-                        <button class="stone-variant variant4" data-variant="RRect"></button>
-                    </div>
+                <div class="col-6 stone-variant-image-container">
+                  <button class="stone-variant variant4" data-variant="RRect"></button>
+                </div>
 
-                    <!--                    <div class="col-6 stone-variant-image-container">-->
-                    <!--                        <button class="stone-variant variant5" data-variant="Box"></button>-->
-                    <!--                    </div>-->
+                <!--                    <div class="col-6 stone-variant-image-container">-->
+                <!--                        <button class="stone-variant variant5" data-variant="Box"></button>-->
+                <!--                    </div>-->
 
-                    <!--                    <div class="col-6 stone-variant-image-container">-->
-                    <!--                        <button class="stone-variant variant6" data-variant="Box"></button>-->
-                    <!--                    </div>-->
+                <!--                    <div class="col-6 stone-variant-image-container">-->
+                <!--                        <button class="stone-variant variant6" data-variant="Box"></button>-->
+                <!--                    </div>-->
 
-                    <!--                    <div class="col-6 stone-variant-image-container">-->
-                    <!--                        <button class="stone-variant variant7" data-variant="Box"></button>-->
-                    <!--                    </div>-->
+                <!--                    <div class="col-6 stone-variant-image-container">-->
+                <!--                        <button class="stone-variant variant7" data-variant="Box"></button>-->
+                <!--                    </div>-->
 
-                    <!--                    <div class="col-6 stone-variant-image-container">-->
-                    <!--                        <button class="stone-variant variant8" data-variant="Box"></button>-->
-                    <!--                    </div>-->
+                <!--                    <div class="col-6 stone-variant-image-container">-->
+                <!--                        <button class="stone-variant variant8" data-variant="Box"></button>-->
+                <!--                    </div>-->
 
-                    <div class="col-12 stone-variant-color-buttons justify-content-center row">
+                <div class="col-12 stone-variant-color-buttons justify-content-center row">
 
-                        <button data-color="ffffff" class="stone-variant-color-button color1"> </button>
-                        <button data-color="ffe69c" class="stone-variant-color-button color2"> </button>
-                        <button data-color="e6dbb9" class="stone-variant-color-button color3"> </button>
-                        <button data-color="fff3cd" class="stone-variant-color-button color4"> </button>
-                        <button data-color="dee2e6" class="stone-variant-color-button color5"> </button>
-                        <button data-color="bacbe6" class="stone-variant-color-button color6"> </button>
-
-                    </div>
+                  <button data-color="ffffff" class="stone-variant-color-button color1"> </button>
+                  <button data-color="ffe69c" class="stone-variant-color-button color2"> </button>
+                  <button data-color="e6dbb9" class="stone-variant-color-button color3"> </button>
+                  <button data-color="fff3cd" class="stone-variant-color-button color4"> </button>
+                  <button data-color="dee2e6" class="stone-variant-color-button color5"> </button>
+                  <button data-color="bacbe6" class="stone-variant-color-button color6"> </button>
 
                 </div>
+
+              </div>
             </div>
+          </div>
+
         </div>
 
+    </section>
+
+
+<!--    &lt;!&ndash; ======= Portfolio Section ======= &ndash;&gt;-->
+<!--    <section id="portfolio" class="portfolio">-->
+<!--      <div class="container">-->
+
+<!--        <div class="section-title">-->
+<!--          <span>Portfolio</span>-->
+<!--          <h2>Portfolio</h2>-->
+<!--          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>-->
+<!--        </div>-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-12 d-flex justify-content-center">-->
+<!--            <ul id="portfolio-flters">-->
+<!--              <li data-filter="*" class="filter-active">All</li>-->
+<!--              <li data-filter=".filter-app">App</li>-->
+<!--              <li data-filter=".filter-card">Card</li>-->
+<!--              <li data-filter=".filter-web">Web</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row portfolio-container">-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app">-->
+<!--            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>App 1</h4>-->
+<!--              <p>App</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web">-->
+<!--            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Web 3</h4>-->
+<!--              <p>Web</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app">-->
+<!--            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>App 2</h4>-->
+<!--              <p>App</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card">-->
+<!--            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Card 2</h4>-->
+<!--              <p>Card</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web">-->
+<!--            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Web 2</h4>-->
+<!--              <p>Web</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app">-->
+<!--            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>App 3</h4>-->
+<!--              <p>App</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card">-->
+<!--            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Card 1</h4>-->
+<!--              <p>Card</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card">-->
+<!--            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Card 3</h4>-->
+<!--              <p>Card</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web">-->
+<!--            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">-->
+<!--            <div class="portfolio-info">-->
+<!--              <h4>Web 3</h4>-->
+<!--              <p>Web</p>-->
+<!--              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>-->
+<!--              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Portfolio Section &ndash;&gt;-->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Testimonials</span>
+          <h2>Testimonials</h2>
+          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Cta Section ======= -->
+<!--    <section id="cta" class="cta">-->
+<!--      <div class="container">-->
+
+<!--        <div class="text-center">-->
+<!--          <h3>Call To Action</h3>-->
+<!--          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+<!--          <a class="cta-btn" href="#">Call To Action</a>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Cta Section &ndash;&gt;-->
+
+    <!-- ======= Team Section ======= -->
+<!--    <section id="team" class="team section-bg">-->
+<!--      <div class="container">-->
+
+<!--        <div class="section-title">-->
+<!--          <span>Team</span>-->
+<!--          <h2>Team</h2>-->
+<!--          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>-->
+<!--        </div>-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">-->
+<!--            <div class="member">-->
+<!--              <img src="assets/img/team/team-1.jpg" alt="">-->
+<!--              <h4>Walter White</h4>-->
+<!--              <span>Chief Executive Officer</span>-->
+<!--              <p>-->
+<!--                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut-->
+<!--              </p>-->
+<!--              <div class="social">-->
+<!--                <a href=""><i class="bi bi-twitter"></i></a>-->
+<!--                <a href=""><i class="bi bi-facebook"></i></a>-->
+<!--                <a href=""><i class="bi bi-instagram"></i></a>-->
+<!--                <a href=""><i class="bi bi-linkedin"></i></a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">-->
+<!--            <div class="member">-->
+<!--              <img src="assets/img/team/team-2.jpg" alt="">-->
+<!--              <h4>Sarah Jhinson</h4>-->
+<!--              <span>Product Manager</span>-->
+<!--              <p>-->
+<!--                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus-->
+<!--              </p>-->
+<!--              <div class="social">-->
+<!--                <a href=""><i class="bi bi-twitter"></i></a>-->
+<!--                <a href=""><i class="bi bi-facebook"></i></a>-->
+<!--                <a href=""><i class="bi bi-instagram"></i></a>-->
+<!--                <a href=""><i class="bi bi-linkedin"></i></a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">-->
+<!--            <div class="member">-->
+<!--              <img src="assets/img/team/team-3.jpg" alt="">-->
+<!--              <h4>William Anderson</h4>-->
+<!--              <span>CTO</span>-->
+<!--              <p>-->
+<!--                Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara-->
+<!--              </p>-->
+<!--              <div class="social">-->
+<!--                <a href=""><i class="bi bi-twitter"></i></a>-->
+<!--                <a href=""><i class="bi bi-facebook"></i></a>-->
+<!--                <a href=""><i class="bi bi-instagram"></i></a>-->
+<!--                <a href=""><i class="bi bi-linkedin"></i></a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; End Team Section &ndash;&gt;-->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>Contact</h2>
+          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>123 Belcrete Ave, Los Angeles, CA 90000</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+
+      <div class="container">
+
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>Belcrete</h3>
+            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+          </div>
+        </div>
+
+        <div class="row footer-newsletter justify-content-center">
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+
+      </div>
     </div>
 
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Belcrete</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/enno-free-simple-bootstrap-template/ -->
+        Designed by <a href="https://honorable.dev/">honorable</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
-
-
-
-
-    <!--    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">-->
-    <!--        <div class="col-md-6 p-lg-5 mx-auto my-5">-->
-    <!--            <h1 class="display-3 fw-bold">Designed for engineers</h1>-->
-    <!--            <h3 class="fw-normal text-muted mb-3">Build anything you want with Aperture</h3>-->
-    <!--            <div class="d-flex gap-3 justify-content-center lead fw-normal">-->
-    <!--                <a class="icon-link" href="#">-->
-    <!--                    Learn more-->
-    <!--                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>-->
-    <!--                </a>-->
-    <!--                <a class="icon-link" href="#">-->
-    <!--                    Buy-->
-    <!--                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>-->
-    <!--                </a>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="product-device shadow-sm d-none d-md-block"></div>-->
-    <!--        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>-->
-    <!--    </div>-->
-
-    <!--    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">-->
-    <!--        <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 py-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 p-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 p-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--        <div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 py-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 p-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 py-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 p-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--        <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">-->
-    <!--            <div class="my-3 py-3">-->
-    <!--                <h2 class="display-5">Another headline</h2>-->
-    <!--                <p class="lead">And an even wittier subheading.</p>-->
-    <!--            </div>-->
-    <!--            <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-
-</main>
-
-
-
-<footer class="container">
-    <!--    <div class="row">-->
-    <!--        <div class="col-12 col-md">-->
-    <!--            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>-->
-    <!--            <small class="d-block mb-3 text-body-secondary">&copy; 2017–2024</small>-->
-    <!--        </div>-->
-    <!--        <div class="col-6 col-md">-->
-    <!--            <h5>Features</h5>-->
-    <!--            <ul class="list-unstyled text-small">-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--        <div class="col-6 col-md">-->
-    <!--            <h5>Resources</h5>-->
-    <!--            <ul class="list-unstyled text-small">-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--        <div class="col-6 col-md">-->
-    <!--            <h5>Resources</h5>-->
-    <!--            <ul class="list-unstyled text-small">-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--        <div class="col-6 col-md">-->
-    <!--            <h5>About</h5>-->
-    <!--            <ul class="list-unstyled text-small">-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Locations</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>-->
-    <!--                <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--    </div>-->
-</footer>
-<!--<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>-->
-
-<script type="importmap">
+  <script type="importmap">
     {
       "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
       }
     }
-</script>
-
-<script type="module" src="tile.js"></script>
+  </script>
+  <script type="module" src="tile.js"></script>
 </body>
+
 </html>
