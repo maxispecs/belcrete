@@ -6,3 +6,7 @@
 .header-scrolled:hover {
     opacity: 1;
 }
+
+#navbar li a {
+    text-transform: uppercase;
+}

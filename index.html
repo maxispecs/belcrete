@@ -27,6 +27,11 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/bc.css" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet">
+
+
   <link href="stone-showcase.css" rel="stylesheet">
 
   <!-- =======================================================
@@ -42,7 +47,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-center">
+    <div class="container d-flex align-items-center justify-content-start">
 
 <!--      <h1 class="logo"><a href="index.html">-->
 <!--         <img src="assets/belcrete-logo.png" alt="Belcrete logo" style="max-height: 100%; max-width: 4rem; width: auto; height: auto" />-->
@@ -52,19 +57,31 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-<!--          <li><a class="nav-link scrollto active" href="#video-section">Belcrete</a></li>-->
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#products">Products</a></li>
+
 
           <li>
 
-              <a class="nav-link scrollto active" href="#video-section">
-                <img src="assets/belcrete-logo-diamond.png" alt="Belcrete logo" style="max-height: 90%; max-width: 4rem; width: auto; height: auto" />
-                <h3 style="font-weight: bold; position: relative; top: .3rem; left: .55rem">Belcrete</h3>
-              </a>
+            <a class="nav-link scrollto active" href="#video-section">
+              <img src="logo-belcrete.png" alt="Belcrete logo" style="max-height: 90%; max-width: 14rem; width: auto; height: auto" />
+<!--              <h3 style="font-weight: bold; position: relative; top: .3rem; left: .55rem">Belcrete</h3>-->
+            </a>
 
 
           </li>
+
+<!--          <li><a class="nav-link scrollto active" href="#video-section">Belcrete</a></li>-->
+          <li><a class="nav-link scrollto" href="#about">About us</a></li>
+          <li><a class="nav-link scrollto" href="#products">Products</a></li>
+
+<!--          <li>-->
+
+<!--              <a class="nav-link scrollto active" href="#video-section">-->
+<!--                <img src="assets/belcrete-logo-diamond.png" alt="Belcrete logo" style="max-height: 90%; max-width: 4rem; width: auto; height: auto" />-->
+<!--                <h3 style="font-weight: bold; position: relative; top: .3rem; left: .55rem">Belcrete</h3>-->
+<!--              </a>-->
+
+
+<!--          </li>-->
 
           <li><a class="nav-link scrollto" href="#showcase">Showcase</a></li>
 <!--          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>-->
@@ -95,6 +112,9 @@
 
     </div>
   </header><!-- End Header -->
+
+
+
 
 <style type="text/css">
 
@@ -129,13 +149,32 @@
   <section id="video-section" style="height: 120vh; padding-top: 82px">
     <div content="container-fluid" style="height: 80vh; top:2vh; position: sticky">
       <div class="video-background">
-        <video autoplay muted loop id="bgVideo">
-          <source src="videos/video1.mp4" type="video/mp4">
+        <video autoplay muted  loop id="bgVideo">
+          <source src="videos/new-text.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="content">
           <!-- Your content here -->
         </div>
+
+        <script>
+          // document.addEventListener('DOMContentLoaded', (event) => {
+          //
+          //   console.log('event', event);
+          //
+          //   const video = document.getElementById('bgVideo');
+          //   video.muted = false;
+          //
+          //   // Autoplay video after user interaction
+          //   const playVideo = () => {
+          //     video.play();
+          //     document.removeEventListener('click', playVideo);
+          //   };
+          //
+          //   document.addEventListener('click', playVideo);
+          // });
+        </script>
+
       </div>
     </div>
   </section>

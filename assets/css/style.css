@@ -7,7 +7,7 @@
 */
 
 :root {
-  --color-primary: #14b3d3;
+  --color-primary: #009fe3;
 }
 
 /*--------------------------------------------------------------
@@ -137,11 +137,12 @@ h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Raleway", sans-serif;
+  /*font-family: "Raleway", sans-serif;*/
+  font-family: "Signika", sans-serif;
   /*font-size: 16px;*/
   font-size: 1.3rem;
-  font-weight: 700;
-  color: #6a7489;
+  font-weight: 500;
+  color: #2d313a;
   white-space: nowrap;
   transition: 0.3s;
 }
