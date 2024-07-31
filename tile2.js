@@ -238,7 +238,7 @@ const objLoader = new OBJLoader();
 
 objLoader.load(
     // resource URL
-    'objects/r3.obj',
+    'objects/vika13.obj',
     // called when resource is loaded
     function ( object ) {
 
@@ -246,6 +246,9 @@ objLoader.load(
         console.log('geom', geometries);
         geometries.cube1 = object.children[0];
         console.log('geom', geometries);
+
+        changeShape('cube1')
+
         // scene.add( object );
         // obj1 = object.children[0];
 
@@ -396,6 +399,9 @@ document.querySelectorAll('.stone-variant').forEach(b => {
         changeShape(e.target.getAttribute('data-variant'))
     })
 });
+
+
+windowResize(showcase)();
 
 // const axesHelper = new THREE.AxesHelper(5);
 // scene.add(axesHelper);

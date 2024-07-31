@@ -10,3 +10,49 @@
 #navbar li a {
     text-transform: uppercase;
 }
+
+.header-circle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.3rem; /* Adjust size as needed */
+    height: 1.3rem; /* Adjust size as needed */
+    border-radius: 50%;
+    padding: 0.05rem 0  0 0.45rem;
+    background-color: var(--color-primary); /* Circle color */
+    color: #fff; /* Icon color */
+    margin-right: 0.4rem;
+}
+
+.header-icon {
+    color: white;
+    font-size:0.75rem;
+}
+
+
+#video-section .video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+#video-section #bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+#video-section .content {
+    position: relative;
+    z-index: 1;
+    color: white; /* Adjust as needed */
+    padding: 20px;
+}
+

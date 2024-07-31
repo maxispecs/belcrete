@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Sections with Sticky Elements</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+        }
+        .section {
+            min-height: 100vh;
+            padding-top: 60px;
+            position: relative;
+        }
+        .sticky-element {
+            position: sticky;
+            top: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /*padding: 20px;*/
+            z-index: 100;
+        }
+        .content {
+            padding: 20px;
+        }
+        #progress-bar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 4px;
+            background-color: #007bff;
+            z-index: 1000;
+        }
+
+
+        .navbar-transparent {
+            background-color: transparent !important;
+            transition: background-color 0.3s;
+        }
+        .navbar-solid {
+            background-color: rgba(255, 255, 255, 0.6) !important; /* Adjust as needed */
+            transition: background-color 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-transparent">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">Sticky Sections</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#section1">Section 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section21">Section 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3">Section 3</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div id="progress-bar"></div>
+
+<div id="section1" class="section bg-light" style="height: 300vh">
+    <div class="sticky-element">
+        <video autoplay muted  loop id="bgVideo">
+            <source src="https://honorable-cdn.s3.us-west-2.amazonaws.com/belcrete/new-text.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="content">
+        <p>Content for section 1...</p>
+    </div>
+</div>
+
+
+
+
+<div id="section21" class="section bg-info">
+    <div class="sticky-element">
+        <h2>Section 2</h2>
+    </div>
+    <div class="content">
+        <p>Content for section 2...</p>
+    </div>
+</div>
+
+
+<div id="section22" class="section bg-primary">
+    <div class="sticky-element">
+        <h2>Section 2</h2>
+    </div>
+    <div class="content">
+        <p>Content for section 2...</p>
+    </div>
+</div>
+
+
+<div id="section23" class="section bg-subtle">
+    <div class="sticky-element">
+        <h2>Section 2</h2>
+    </div>
+    <div class="content">
+        <p>Content for section 2...</p>
+    </div>
+</div>
+
+<div id="section3" class="section bg-warning">
+    <div class="sticky-element">
+        <h2>Section 3</h2>
+    </div>
+    <div class="content">
+        <p>Content for section 3...</p>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const sections = document.querySelectorAll('.section');
+    //     const progressBar = document.getElementById('progress-bar');
+    //
+    //     function updateProgress() {
+    //         const scrollPosition = window.scrollY;
+    //         const windowHeight = window.innerHeight;
+    //         const documentHeight = document.documentElement.scrollHeight;
+    //         const progress = (scrollPosition / (documentHeight - windowHeight)) * 100;
+    //         progressBar.style.width = `${progress}%`;
+    //
+    //         sections.forEach(section => {
+    //             const rect = section.getBoundingClientRect();
+    //             const sectionHeight = rect.height;
+    //             const sectionTop = rect.top;
+    //             const sectionBottom = rect.bottom;
+    //
+    //             if (sectionTop <= windowHeight && sectionBottom >= 0) {
+    //                 const visibleHeight = Math.min(windowHeight, sectionBottom) - Math.max(0, sectionTop);
+    //                 const percentVisible = (visibleHeight / sectionHeight) * 100;
+    //                 const percentScrolled = Math.max(0, Math.min(100, ((windowHeight - sectionTop) / sectionHeight) * 100));
+    //
+    //                 // Custom effects based on scroll percentage
+    //                 if (section.id === 'section1') {
+    //                     section.style.backgroundColor = `rgba(248, 249, 250, ${percentScrolled / 100})`;
+    //                 } else if (section.id === 'section2') {
+    //                     section.style.transform = `scale(${1 + (percentScrolled / 200)})`;
+    //                 } else if (section.id === 'section3') {
+    //                     section.style.opacity = percentScrolled / 100;
+    //                 }
+    //
+    //                 console.log(`${section.id}: ${percentVisible.toFixed(2)}% visible, ${percentScrolled.toFixed(2)}% scrolled`);
+    //             }
+    //         });
+    //     }
+    //
+    //     window.addEventListener('scroll', updateProgress);
+    //     window.addEventListener('resize', updateProgress);
+    //     updateProgress(); // Initial call
+    // });
+</script>
+
+
+<script>
+    document.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) { // Adjust this value based on when you want the transparency to change
+            navbar.classList.remove('navbar-transparent');
+            navbar.classList.add('navbar-solid');
+        } else {
+            navbar.classList.remove('navbar-solid');
+            navbar.classList.add('navbar-transparent');
+        }
+    });
+</script>
+
+
+</body>
+</html>
