@@ -7,7 +7,7 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-import { setupRenderer, setupControls, setupLights } from '/js/scene.js';
+import { setupRenderer, setupControls, setupLights } from './js/scene.js';
 import { windowResize } from "./js/events.js";
 
 
