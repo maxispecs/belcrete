@@ -283,7 +283,7 @@ const objLoader = new OBJLoader();
 
 objLoader.load(
     // resource URL
-    'objects/vika13.obj',
+    'objects/vika31.obj',
     // called when resource is loaded
     function ( object ) {
 
