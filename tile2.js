@@ -7,53 +7,8 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// import { setupRenderer, setupControls, setupLights } from './js/scene.js';
-// import { windowResize } from "./js/events.js";
-
-export const windowResize = (showcase) => () => {
-    // showcase.camera.aspect = window.innerWidth / window.innerHeight;
-    showcase.camera.aspect = showcase.container.offsetWidth / showcase.container.offsetHeight;
-    showcase.camera.updateProjectionMatrix();
-    // showcase.renderer.setSize(window.innerWidth, window.innerHeight);
-    showcase.renderer.setSize(showcase.container.offsetWidth, showcase.container.offsetHeight);
-}
-
-
-
-export const setupControls = (showcase) => {
-    let controls = new OrbitControls(showcase.camera, showcase.orbitControlsContainer);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.25;
-    controls.enableZoom = true;
-    return controls;
-}
-
-
-export const setupRenderer = () => {
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Enable alpha channel
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Set background color to transparent
-    renderer.domElement.style.position = 'absolute';
-    renderer.domElement.style.zIndex = 3; // Ensure the canvas is on top
-    return renderer;
-
-}
-
-
-
-export const setupLights = (showcase) => {
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
-    showcase.scene.add(ambientLight);
-
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(5, 5, 5);
-    showcase.scene.add(pointLight);
-
-}
-
+import { setupRenderer, setupControls, setupLights } from './js/scene.js';
+import { windowResize } from "./js/events.js";
 
 
 const showcase = {
@@ -66,195 +21,76 @@ const showcase = {
 
 showcase.controls = setupControls(showcase);
 setupLights(showcase);
-
-//
-// import { TransformControls } from 'three/addons/controls/TransformControls.js';
-
-// Scene, Camera, Renderer
-// const container = document.getElementById('rotating-stone');
-// const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// const renderer = setupRenderer();
-// const orbitControlsContainer = document.getElementById("orbit-controls");
-
-
-
-
-// let miniMapScene = new THREE.Scene();
-// let miniMapCamera = new THREE.OrthographicCamera(-5, 5, 5, -5, 0.1, 1000);
-// miniMapCamera.position.set(10, 10, 10);
-// miniMapCamera.lookAt(0, 0, 0);
-//
-// // let miniMapRenderer = new THREE.WebGLRenderer();
-// // miniMapRenderer.setSize(250, 200); // Mini-map size
-// // orbitControlsContainer.appendChild(miniMapRenderer.domElement);
-// //
-// // let miniMapTarget = new THREE.WebGLRenderTarget(512, 512); // Mini-map render target
-
-
-
-// let controls = new OrbitControls(camera, orbitControlsContainer);
-// controls.enableDamping = true;
-// controls.dampingFactor = 0.25;
-// controls.enableZoom = true;
-
-// camera.position.z = 5;
-
-
 showcase.container.appendChild(showcase.renderer.domElement);
-//
-// // Lighting
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
-// scene.add(ambientLight);
-//
-// const pointLight = new THREE.PointLight(0xffffff, 1);
-// pointLight.position.set(5, 5, 5);
-// scene.add(pointLight);
-
-
-// const loader = new GLTFLoader();
-// loader.load('/objects/SwankyTrug-Inari.glb', function (gltf) {
-//     scene.add(gltf.scene);
-// }, undefined, function (error) {
-//     console.error(error);
-// });
-
-
-
 
 
 
 const textureLoader = new THREE.TextureLoader();
 
+let materials = [
+
+];
+
 // const textureName = 'rock_wall_03' ;
-const textureName = 'brushed_concrete_2' ;
-const textureNameSuffix = '';
+// const textureName = 'brushed_concrete_2' ;
+const textureName = 'gravel_embedded_concrete' ;
+const textureNameSuffix = '_1k';
 
 let brick;
 
-const diffuseTexture = textureLoader.load(`textures/${textureName}_diff${textureNameSuffix}.jpg`,
-    texture => {
+
+function createMaterial(textureName, textureNameSuffix, textureZoom, color, diffuseSuffix) {
+
+    if (typeof diffuseSuffix === 'undefined') {
+        diffuseSuffix = '';
+    }
+
+    const diffuseTexture = textureLoader.load(`textures/${textureName}_diff${textureNameSuffix}${diffuseSuffix}.jpg`,
+        texture => {
+            texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+            texture.repeat.set(textureZoom, textureZoom);
+            showcase.scene.add(brick);
+        }); // Replace with your Diffuse texture URL
+
+    const normalTexture = textureLoader.load(`textures/${textureName}_nor_gl${textureNameSuffix}.jpg`, texture => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(1, 1);
-        showcase.scene.add(brick);
-    }); // Replace with your Diffuse texture URL
+        texture.repeat.set(textureZoom, textureZoom);
+    }); // Replace with your Normal texture URL
 
-const normalTexture = textureLoader.load(`textures/${textureName}_nor_gl${textureNameSuffix}.jpg`); // Replace with your Normal texture URL
-const armTexture = textureLoader.load(`textures/${textureName}_arm${textureNameSuffix}.jpg`); // Replace with your AO texture URL
-// const roughnessTexture = textureLoader.load('/textures/brushed_concrete_2_rough_4k.jpg'); // Replace with your Roughness texture URL
-// const displacementTexture = textureLoader.load('/textures/brushed_concrete_2_disp_4k.jpg'); // Replace with your Displacement texture URL
+    const armTexture = textureLoader.load(`textures/${textureName}_arm${textureNameSuffix}.jpg`, texture => {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(textureZoom, textureZoom);
+    }); // Replace with your AO texture URL
+
+    const material = new THREE.MeshStandardMaterial({
+        map: diffuseTexture,
+        normalMap: normalTexture,
+        aoMap: armTexture,
+        roughnessMap: armTexture,
+        metalnessMap: armTexture,
+        //displacementMap: displacementTexture,
+        // displacementScale: 0.01
+    });
+
+    if (color) {
+        material.color.setHex('0x' + color);
+    }
+
+    return material;
+}
+
+// let material = createMaterial('gravel_embedded_concrete', '_1k', 5.5, null, '_m1');
+let material = createMaterial('gravel_embedded_concrete', '_1k', 5.5, 'f0eee6');
+
+materials[1] = material;
 
 
-const material = new THREE.MeshStandardMaterial({
-    map: diffuseTexture,
-    normalMap: normalTexture,
-    aoMap: armTexture,
-    roughnessMap: armTexture,
-    metalnessMap: armTexture,
-    //displacementMap: displacementTexture,
-    // displacementScale: 0.01
-});
-
+materials[2] = createMaterial('gravel_embedded_concrete', '_1k', 8, null, '_m2');
+materials[3] = createMaterial('gravel_embedded_concrete', '_1k', 2.5, null, '_m3');
 
 
 
 let obj1;
-// Instantiate a loader
-// const loader = new GLTFLoader();
-
-// Optional: Provide a DRACOLoader instance to decode compressed mesh data
-// const dracoLoader = new DRACOLoader();
-// dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
-// loader.setDRACOLoader( dracoLoader );
-
-// Load a glTF resource
-// loader.load(
-//     // resource URL
-//     '/objects/obj2.glb',
-//     // called when the resource is loaded
-//     function ( gltf ) {
-//
-//         const model = gltf.scene;
-//
-//         model.traverse((child) => {
-//             if (child.isMesh) {
-//                 console.log('Extracted mesh:', child);
-//
-//                 // Optionally apply a custom material
-//                 // const customMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-//
-//
-//                 obj1 = child;
-//                 // obj1.material = material;
-//
-//                 obj1.scale.set(0.1, .1, .1);
-//
-//                 const box = new THREE.Box3().setFromObject(obj1);
-//                 const size = box.getSize(new THREE.Vector3());
-//                 const center = box.getCenter(new THREE.Vector3());
-//                 obj1.position.x -= center.x;
-//                 obj1.position.y -= center.y ;
-//                 obj1.position.z -= center.z;
-//
-//                 obj1.rotation.x += .9;
-//
-//                 // Add the mesh to the scene or manipulate it as needed
-//                 // scene.add(obj1);
-//                 // brick = obj1;
-//                 // changeShape('RRect')
-//             }
-//         });
-//
-//         // scene.add( gltf.scene.children[0] );
-//
-//
-//         // Adjust model scale and position if necessary
-//         // model.scale.set(.05, .05, .05); // Scale the model if it's too small or large
-//         // model.position.set(0, 0, 0); // Position the model if it's off-center
-//         //
-//         // const box = new THREE.Box3().setFromObject(model);
-//         // const size = box.getSize(new THREE.Vector3());
-//         // const center = box.getCenter(new THREE.Vector3());
-//         //
-//         // console.log('Model size:', size);
-//         // console.log('Model center:', center);
-//         //
-//         // // Optionally, center the model
-//         // model.position.x -= center.x;
-//         // model.position.y -= center.y;
-//         // model.position.z -= center.z;
-//         //
-//         // model.rotation.x += 2;
-//         // // model.rotation.y += ;
-//         //
-//         // scene.add(model);
-//         //
-//         // obj1 = model;
-//         //
-//         // console.log('Model loaded:', model);
-//         //
-//         // // gltf.animations; // Array<THREE.AnimationClip>
-//         // // gltf.scene; // THREE.Group
-//         // // gltf.scenes; // Array<THREE.Group>
-//         // // gltf.cameras; // Array<THREE.Camera>
-//         // // gltf.asset; // Object
-//         // console.log('loaded', gltf);
-//     },
-//     // called while loading is progressing
-//     function ( xhr ) {
-//
-//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-//
-//     },
-//     // called when loading has errors
-//     function ( error ) {
-//
-//         console.log( 'An error happened' );
-//
-//     }
-// );
-
-
 
 
 
@@ -306,17 +142,9 @@ objLoader.load(
 
     },
     // called when loading is in progresses
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
+    function ( xhr ) { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); },
     // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
+    function ( error ) { console.log( 'An error happened' ); }
 );
 
 let currentGeometry = geometries.Box;
@@ -394,35 +222,16 @@ function changeShape(shape) {
         brick.rotation.x += 0.5;
         showcase.scene.add(brick);
     }
-
-
 }
 
-// GUI Controls
-// const gui = new GUI();
-// const shapes = ['Box', 'Sphere', 'Cylinder'];
-// const params = { shape: 'Box' };
-//
-// gui.add(params, 'shape', shapes).onChange(value => {
-//     scene.remove(brick);
-//     currentGeometry = geometries[value];
-//     brick = new THREE.Mesh(currentGeometry, material);
-//     brick.rotation.x += 0.25 + Math.random();
-//     scene.add(brick);
-// });
-//
-// const colors = {
-//     Green: 0x00ff00,
-//     Red: 0xff0000,
-//     Blue: 0x0000ff,
-//     Yellow: 0xffff00
-// };
-//
-// const colorFolder = gui.addFolder('Colors');
-// colorFolder.add({ color: 'Green' }, 'color', Object.keys(colors)).onChange(color => {
-//     material.color.setHex(colors[color]);
-// });
-// colorFolder.open();
+
+function changeMaterial(materialIndex) {
+    console.log('material', materialIndex);
+    material = materials[materialIndex];
+    console.log(material);
+    brick.material = material;
+}
+
 
 
 
@@ -436,10 +245,22 @@ function changeColor(color) {
 }
 
 
+
+
+
+// document.querySelectorAll('.stone-variant-color-button').forEach(b => {
+//     b.addEventListener('click', e => {
+//         // console.log(e.target.getAttribute('data-color'));
+//         changeColor(e.target.getAttribute('data-color'));
+//     })
+// });
+
+
 document.querySelectorAll('.stone-variant-color-button').forEach(b => {
     b.addEventListener('click', e => {
         // console.log(e.target.getAttribute('data-color'));
-        changeColor(e.target.getAttribute('data-color'));
+        console.log(e.target.getAttribute('data-material'));
+        changeMaterial(e.target.getAttribute('data-material'));
     })
 });
 

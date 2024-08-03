@@ -31,8 +31,13 @@ export const setupLights = (showcase) => {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
     showcase.scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xffffff, 1);
+    const pointLight = new THREE.PointLight(0xffffff, .9);
     pointLight.position.set(5, 5, 5);
     showcase.scene.add(pointLight);
+
+
+    const pointLight2 = new THREE.PointLight(0xffffff, .7);
+    pointLight2.position.set(-5, -15, -5);
+    showcase.scene.add(pointLight2);
 
 }

@@ -83,8 +83,8 @@
 .color6 {    background-color: #bacbe6;}
 
 .stone-variant-color-button {
-    width: 10%;
-    padding-top: 10%;
-    margin-right:3%;
+    width: 10vh;
+    padding-top: 10vh;
+    margin-right: 3%;
     border-radius: .25rem;
 }
