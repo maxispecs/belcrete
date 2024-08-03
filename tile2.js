@@ -353,7 +353,12 @@ brick.rotation.x += 0.5;
 function animate() {
     requestAnimationFrame(animate);
     // brick.rotation.x += 0.01;
-    brick.rotation.y += 0.01;
+
+    if ( document.getElementById('enable-rotation').checked ) {
+        brick.rotation.y += 0.01;
+    }
+
+
     showcase.controls.update();
     // if (transformControls)
     //     transformControls.update();
