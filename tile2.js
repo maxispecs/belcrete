@@ -83,11 +83,11 @@ function createMaterial(textureName, textureNameSuffix, textureZoom, color, diff
 let material = createMaterial('gravel_embedded_concrete', '_1k', 5.5, 'f0eee6');
 
 materials[1] = material;
-
-
-materials[2] = createMaterial('gravel_embedded_concrete', '_1k', 8, null, '_m2');
-materials[3] = createMaterial('gravel_embedded_concrete', '_1k', 2.5, null, '_m3');
-
+materials[2] = createMaterial('gravel_embedded_concrete', '_1k', 6, null, '_m2');
+materials[3] = createMaterial('gravel_embedded_concrete', '_1k', 3.5, null, '_m3');
+materials[4] = createMaterial('gravel_embedded_concrete', '_1k', 3.5, 'b8a298', '_m4');
+materials[5] = createMaterial('gravel_embedded_concrete', '_1k', 3.5, 'dbc9b6', '_m4');
+materials[6] = createMaterial('gravel_embedded_concrete', '_1k', 4.5, 'd9c3a7');
 
 
 let obj1;
