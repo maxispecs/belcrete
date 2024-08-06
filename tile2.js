@@ -119,7 +119,7 @@ const objLoader = new OBJLoader();
 
 objLoader.load(
     // resource URL
-    'objects/vika31.obj',
+    'objects/vika4.obj',
     // called when resource is loaded
     function ( object ) {
 
@@ -183,7 +183,7 @@ function animate() {
     // brick.rotation.x += 0.01;
 
     if ( document.getElementById('enable-rotation').checked ) {
-        brick.rotation.y += 0.01;
+        brick.rotation.y += 0.005;
     }
 
 
