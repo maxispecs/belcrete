@@ -119,7 +119,7 @@ const objLoader = new OBJLoader();
 
 objLoader.load(
     // resource URL
-    'objects/vika4.obj',
+    'objects/qar1.obj',
     // called when resource is loaded
     function ( object ) {
 
